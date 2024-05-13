@@ -20,6 +20,14 @@ addBTN.addEventListener("click", function(){
 
     push(shoppingListInDB, inputValue)
 
-    shoppingList.innerHTML += `<li> ${inputValue} </li>`
-    inputValue.value = "";
+    clearInputFieldEl();
+    appendToShoppingListEl(inputValue);
 })
+
+function clearInputFieldEl() {
+    inputField.value = "";
+}
+
+function appendToShoppingListEl (itemValue) {
+    shoppingList.innerHTML += `<li> ${itemValue} </li>`
+}
