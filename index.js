@@ -3,5 +3,7 @@ const inputField = document.getElementById("input-field")
 
 
 addBTN.addEventListener("click", function(){
-    console.log(inputField.value);
+    let inputValue = inputField.value;
+    
+    console.log(inputValue);
 })
