@@ -21,12 +21,11 @@ addBTN.addEventListener("click", function(){
     push(shoppingListInDB, inputValue)
 
     clearInputFieldEl();
-    appendToShoppingListEl(inputValue);
 })
 
 onValue(shoppingListInDB, function(snapshot){
    let itemsArray = Object.values(snapshot.val());
-   clearInputFieldEl();
+   clearShoppingListEl();
    
    for(let i = 0; i < itemsArray.length; ++i){
     let currentItem = itemsArray[i];
@@ -38,6 +37,11 @@ onValue(shoppingListInDB, function(snapshot){
 function clearInputFieldEl() {
     inputField.value = "";
 }
+
+function clearShoppingListEl(){
+shoppingList.innerHTML = "";
+}
+
 
 function appendToShoppingListEl (itemValue) {
     shoppingList.innerHTML += `<li> ${itemValue} </li>`
