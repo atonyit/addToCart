@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, push } from
+import { getDatabase, ref, push, onValue } from
  "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
@@ -22,6 +22,11 @@ addBTN.addEventListener("click", function(){
 
     clearInputFieldEl();
     appendToShoppingListEl(inputValue);
+})
+
+onValue(shoppingListInDB, function(snapshot){
+   let itemsArray = Object.values(snapshot.val());
+   console.log(shoppingListArray)
 })
 
 function clearInputFieldEl() {
