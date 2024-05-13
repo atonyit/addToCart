@@ -21,4 +21,5 @@ addBTN.addEventListener("click", function(){
     push(shoppingListInDB, inputValue)
 
     shoppingList.innerHTML += `<li> ${inputValue} </li>`
+    inputValue.value = "";
 })
