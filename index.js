@@ -26,7 +26,13 @@ addBTN.addEventListener("click", function(){
 
 onValue(shoppingListInDB, function(snapshot){
    let itemsArray = Object.values(snapshot.val());
-   console.log(shoppingListArray)
+   clearInputFieldEl();
+   
+   for(let i = 0; i < itemsArray.length; ++i){
+    let currentItem = itemsArray[i];
+
+    appendToShoppingListEl(currentItem);
+   }
 })
 
 function clearInputFieldEl() {
