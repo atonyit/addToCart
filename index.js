@@ -11,7 +11,8 @@ const database = getDatabase(app);
 const shoppingListInDB = ref(database, "shoppingList")
 
 const addBTN = document.getElementById("add-btn");
-const inputField = document.getElementById("input-field")
+const inputField = document.getElementById("input-field");
+const shoppingList = document.getElementById("shopping-list");
 
 
 addBTN.addEventListener("click", function(){
@@ -19,5 +20,5 @@ addBTN.addEventListener("click", function(){
 
     push(shoppingListInDB, inputValue)
 
-    console.log( `${inputValue} added to database`);
+    shoppingList.innerHTML += `<li> ${inputValue} </li>`
 })
