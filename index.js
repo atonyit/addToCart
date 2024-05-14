@@ -48,10 +48,15 @@ shoppingList.innerHTML = "";
 function appendToShoppingListEl (item) {
     let itemID = item[0]
     let itemValue = item[1]
-    
+
     let newEl = document.createElement("li");
 
     newEl.textContent = itemValue;
 
+    newEl.addEventListener("dblclick", function(){
+        console.log(itemID);
+    })
+
     shoppingList.append(newEl)
+
 }
