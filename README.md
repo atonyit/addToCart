@@ -1,7 +1,9 @@
 
 # Add to Cart Application
 
-This is a simple web application that allows users to add items to a shopping list and remove them. The application uses Firebase Realtime Database to store the shopping list data.
+This is a simple web application that allows users to add items to a shopping list and remove them. The application uses Firebase Realtime Database to store the shopping list data. This can be run on all devices, if on a mobile device, simply save it to the home screen and it will work as intended.
+
+!!! Icon currently isn't being displayed !!!
 
 ## Project Structure
 
