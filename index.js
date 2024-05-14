@@ -1,10 +1,10 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getDatabase, ref, push, onValue } from
+import { getDatabase, ref, push, onValue, remove } from
  "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
 
 const appSettings = {
     databaseURL: "https://realtime-database-208e0-default-rtdb.firebaseio.com/"
-}
+};
 
 const app = initializeApp(appSettings);
 const database = getDatabase(app);
@@ -18,7 +18,7 @@ const shoppingList = document.getElementById("shopping-list");
 addBTN.addEventListener("click", function(){
     let inputValue = inputField.value;
 
-    push(shoppingListInDB, inputValue)
+    push(shoppingListInDB, inputValue);
 
     clearInputFieldEl();
 })
@@ -46,17 +46,19 @@ shoppingList.innerHTML = "";
 
 
 function appendToShoppingListEl (item) {
-    let itemID = item[0]
-    let itemValue = item[1]
+    let itemID = item[0];
+    let itemValue = item[1];
 
     let newEl = document.createElement("li");
 
     newEl.textContent = itemValue;
 
-    newEl.addEventListener("dblclick", function(){
-        console.log(itemID);
+    newEl.addEventListener("click", function(){
+        let exactLocationOfItemInDB = ref(database, `shoppingList/${itemID}`);
+        
+        remove(exactLocationOfItemInDB);
     })
 
-    shoppingList.append(newEl)
+    shoppingList.append(newEl);
 
 }
